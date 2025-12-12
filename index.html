@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <button id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="header" tabindex="-1">
+        <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+
+    <header id="header" role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#welcome" aria-label="Ir a la sección de inicio"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
+                <li><a href="#about-me" aria-label="Ir a la sección sobre mí"><i class="fas fa-user" aria-hidden="true"></i> Sobre mí</a></li>
+                <li><a href="#skills" aria-label="Ir a la sección de habilidades"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Skills</a></li>
+                <li><a href="#certificates" aria-label="Ir a la sección de certificaciones"><i class="fas fa-certificate" aria-hidden="true"></i> Certificaciones</a></li>
+                <li><a href="#projects" aria-label="Ir a la sección de proyectos"><i class="fas fa-code" aria-hidden="true"></i> Proyectos</a></li>
+                <li><a href="#contact" aria-label="Ir a la sección de contacto"><i class="fas fa-envelope" aria-hidden="true"></i> Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="welcome" role="region" aria-labelledby="welcome-heading" tabindex="0">
+        <img src="images/avatar.png" alt="Avatar de perfil de Sergio Reyes">
+        <h1 id="welcome-heading">Sergio Reyes</h1>
+        <p>Desarrollador Web</p>
+    </section>
+
+    <section id="about-me" role="region" aria-labelledby="about-me-heading" tabindex="0">
+        <h2 id="about-me-heading">Sobre mí</h2>
+        <div class="about-me-content">
+            <div class="about-me-column">
+                <img src="images/estudios.png" alt="Icono representando estudios y conocimientos académicos">
+                <p>Me apasiona el diseño web, estoy estudiando <strong>DAW (Desarrollo de Aplicaciones Web)</strong> en el Instituto Baix Camp de Reus. 
+                    También cuento con conocimientos en el campo de la arquitectura y titulación como <strong>Diseñador de Interiores</strong>.</p>
+            </div>
+            <div class="about-me-column">
+                <img src="images/cualidades.png" alt="Icono representando cualidades y habilidades personales">
+                <p>Soy <strong>perfeccionista</strong>, me gusta el trabajo bien realizado, soy <strong>creativo</strong>, <strong>organizado</strong>, <strong>responsable</strong> y tengo facilidad para trabajar en grupo.
+                    Me desenvuelvo bien gestionando proyectos y tratando con clientes y proveedores.</p>
+            </div>
+            <div class="about-me-column">
+                <img src="images/idiomas.png" alt="Icono representando idiomas y comunicación internacional">
+                <p>Tengo buen nivel de inglés, he participado en dos Erasmus+ en Eslovaquia y Portugal, donde he aprendido a mejorar mi <strong>comunicación</strong> y <strong>trabajo en equipo</strong> con personas de diferentes culturas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" role="region" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Skills</h2>
+        <!-- Leyenda de colores por nivel de habilidad (Bueno - verde, Medio - amarillo, Básico - rojo) -->
+        <div class="skills-legend" role="list" aria-label="Leyenda de niveles de habilidad">
+            <div class="legend-item" role="listitem">
+                <span class="legend-color good" aria-hidden="true"></span>
+                <span class="legend-text">Buen nivel</span>
+            </div>
+            <div class="legend-item" role="listitem">
+                <span class="legend-color medium" aria-hidden="true"></span>
+                <span class="legend-text">Nivel medio</span>
+            </div>
+            <div class="legend-item" role="listitem">
+                <span class="legend-color bad" aria-hidden="true"></span>
+                <span class="legend-text">Nivel básico</span>
+            </div>
+        </div>
+        
+
+        <div class="logos" role="list" aria-label="Lista de tecnologías y herramientas">
+            <!-- Programming Languages -->
+            <div class="carousel-item" data-category="language" data-level="good" role="listitem" aria-label="PHP - Nivel bueno" ><img src="images/php-logo.png" alt="PHP"></div>
+            <div class="carousel-item" data-category="language" data-level="good" role="listitem" aria-label="JavaScript - Nivel bueno" ><img src="images/javascript-logo.png" alt="JavaScript"></div>
+            <div class="carousel-item" data-category="language" data-level="medium" role="listitem" aria-label="Java - Nivel medio" ><img src="images/java-logo.png" alt="Java"></div>
+            <div class="carousel-item" data-category="language" data-level="bad" role="listitem" aria-label="Python - Nivel básico" ><img src="images/python-logo.png" alt="Python"></div>
+
+            <!-- Web Technologies -->
+            <div class="carousel-item" data-category="web" data-level="good" role="listitem"><img src="images/html5-logo.png" alt="HTML5"></div>
+            <div class="carousel-item" data-category="web" data-level="good" role="listitem"><img src="images/css3-logo.svg" alt="CSS3"></div>
+
+            <!-- Frameworks and Libraries -->
+            <div class="carousel-item" data-category="framework" data-level="good" role="listitem"><img src="images/laravel-logo.png" alt="Laravel"></div>
+            <div class="carousel-item" data-category="framework" data-level="medium" role="listitem"><img src="images/bootstrap-logo.png" alt="Bootstrap"></div>
+            <div class="carousel-item" data-category="framework" data-level="medium" role="listitem"><img src="images/tailwind-logo.png" alt="Tailwind"></div>
+
+            <!-- Version Control -->
+            <div class="carousel-item" data-category="vcs" data-level="good" role="listitem"><img src="images/github-logo.svg" alt="GitHub"></div>
+            <div class="carousel-item" data-category="vcs" data-level="medium" role="listitem"><img src="images/git-logo.png" alt="Git"></div>
+
+            <!-- Databases -->
+            <div class="carousel-item" data-category="db" data-level="good" role="listitem"><img src="images/mysql-logo.png" alt="MySQL"></div>
+            <div class="carousel-item" data-category="db" data-level="good" role="listitem"><img src="images/mongodb-logo.png" alt="MongoDB"></div>
+            <div class="carousel-item" data-category="db" data-level="good" role="listitem"><img src="images/mariadb-logo.png" alt="MariaDB"></div>
+            <div class="carousel-item" data-category="db" data-level="good" role="listitem"><img src="images/sqlite-logo.svg" alt="SQLite"></div>
+            <div class="carousel-item" data-category="db" data-level="medium" role="listitem"><img src="images/postgresql-logo.png" alt="PostgreSQL"></div>
+            <div class="carousel-item" data-category="db" data-level="medium" role="listitem"><img src="images/oracle-logo.png" alt="Oracle"></div>
+
+            <!-- Development Tools -->
+            <div class="carousel-item" data-category="tool" data-level="good" role="listitem"><img src="images/vscode-logo.png" alt="VSCode"></div>
+            <div class="carousel-item" data-category="tool" data-level="good" role="listitem"><img src="images/eclipse-logo.png" alt="Eclipse"></div>
+
+            <!-- Design Tools -->
+            <div class="carousel-item" data-category="design" data-level="good" role="listitem"><img src="images/illustrator-logo.png" alt="Illustrator"></div>
+            <div class="carousel-item" data-category="design" data-level="good" role="listitem"><img src="images/photoshop-logo.png" alt="Photoshop"></div>
+            <div class="carousel-item" data-category="design" data-level="good" role="listitem"><img src="images/gimp-logo.png" alt="GIMP"></div>
+            <div class="carousel-item" data-category="design" data-level="good" role="listitem"><img src="images/inkscape-logo.png" alt="Inkscape"></div>  
+            <div class="carousel-item" data-category="design" data-level="good" role="listitem"><img src="images/drawio-logo.png" alt="Draw.io"></div>
+            <div class="carousel-item" data-category="design" data-level="medium" role="listitem"><img src="images/figma-logo.svg" alt="Figma"></div>
+            <div class="carousel-item" data-category="design" data-level="medium" role="listitem"><img src="images/canva-logo.png" alt="Canva"></div>
+
+            <!-- Operating Systems -->
+            <div class="carousel-item" data-category="os" data-level="good" role="listitem"><img src="images/linux-logo.png" alt="Linux"></div>
+            <div class="carousel-item" data-category="os" data-level="good" role="listitem"><img src="images/windows-logo.png" alt="Windows"></div>
+            <div class="carousel-item" data-category="os" data-level="good" role="listitem"><img src="images/debian-logo.png" alt="Debian"></div>
+            <div class="carousel-item" data-category="os" data-level="good" role="listitem"><img src="images/ubuntu-logo.png" alt="Ubuntu"></div>
+
+            <!-- Servers and Development Environment -->
+            <div class="carousel-item" data-category="server" data-level="good" role="listitem"><img src="images/laragon-logo.svg" alt="Laragon"></div>
+            <div class="carousel-item" data-category="server" data-level="good" role="listitem"><img src="images/xampp-logo.png" alt="XAMPP"></div>
+            <div class="carousel-item" data-category="server" data-level="good" role="listitem"><img src="images/docker-logo.png" alt="Docker"></div>
+            <div class="carousel-item" data-category="server" data-level="good" role="listitem"><img src="images/virtualbox-logo.png" alt="VirtualBox"></div>
+
+            <!-- CMS and Business Tools -->
+            <div class="carousel-item" data-category="cms" data-level="good" role="listitem"><img src="images/trello-logo.png" alt="Trello"></div>
+            <div class="carousel-item" data-category="cms" data-level="good" role="listitem"><img src="images/netlify-logo.png" alt="Netlify"></div>
+            <div class="carousel-item" data-category="cms" data-level="good" role="listitem"><img src="images/odoo-logo.png" alt="Odoo"></div>
+            <div class="carousel-item" data-category="cms" data-level="medium" role="listitem"><img src="images/wordpress-logo.png" alt="WordPress"></div>
+        </div>
+        
+        <div class="logos-filters" role="group" aria-label="Filtros de tecnologías">
+            <button type="button" data-filter="all" aria-pressed="true" aria-label="Mostrar todas las tecnologías">Todos</button>
+            <button type="button" data-filter="language" aria-pressed="false" aria-label="Filtrar por lenguajes de programación">Lenguajes</button>
+            <button type="button" data-filter="web" aria-pressed="false" aria-label="Filtrar por tecnologías web">Web</button>
+            <button type="button" data-filter="framework" aria-pressed="false" aria-label="Filtrar por frameworks">Frameworks</button>
+            <button type="button" data-filter="vcs" aria-pressed="false" aria-label="Filtrar por control de versiones">Control de versiones</button>
+            <button type="button" data-filter="db" aria-pressed="false" aria-label="Filtrar por bases de datos">Bases de datos</button>
+            <button type="button" data-filter="tool" aria-pressed="false" aria-label="Filtrar por herramientas de desarrollo">IDEs</button>
+            <button type="button" data-filter="design" aria-pressed="false" aria-label="Filtrar por herramientas de diseño">Diseño</button>
+            <button type="button" data-filter="os" aria-pressed="false" aria-label="Filtrar por sistemas operativos">Sistemas</button>
+            <button type="button" data-filter="server" aria-pressed="false" aria-label="Filtrar por servidores">Servidores</button>
+            <button type="button" data-filter="cms" aria-pressed="false" aria-label="Filtrar por CMS y herramientas de negocio">CMS/Business</button>
+        </div>
+    </section>
+
+    <section id="certificates" role="region" aria-labelledby="certificates-heading">
+        <h2 id="certificates-heading">Certificaciones</h2>
+    
+        <div class="certificates-gallery" aria-label="Galería de certificaciones" role="list">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 1 - Abre en nueva ventana" role="listitem">
+                <img src="images/c1.png" alt="Certificación 1">
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 2 - Abre en nueva ventana" role="listitem">
+                <img src="images/c2.png" alt="Certificación 2">
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 3 - Abre en nueva ventana" role="listitem">
+                <img src="images/c1.png" alt="Certificación 3">
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 4 - Abre en nueva ventana" role="listitem">
+                <img src="images/c2.png" alt="Certificación 4">
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 5 - Abre en nueva ventana" role="listitem">
+                <img src="images/c1.png" alt="Certificación 5">
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 6 - Abre en nueva ventana" role="listitem">
+                <img src="images/c2.png" alt="Certificación 6">
+            </a>
+        </div>
+    </section>    
+    
+    <section id="projects" role="region" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Proyectos</h2>
+        
+        <div class="projects-carousel" role="region" aria-label="Carrusel de proyectos" aria-live="polite">
+            <button class="projects-arrow left" aria-label="Ver proyecto anterior" aria-controls="projects-track"><</button>
+            <div class="projects-track" id="projects-track" role="list" aria-label="Lista de proyectos">
+                <article class="project-card" data-tags="frontend,backend,php,javascript,laravel" role="listitem">
+                    <a href="https://devchallenge2.joanysergio.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Ver página de lista de compras - Abre en nueva ventana">
+                        <img src="images/polaroid4.png" alt="Captura de la página de lista de compras">
+                    </a>
+                    <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
+                        <span data-tag role="listitem">frontend</span>
+                        <span data-tag role="listitem">backend</span>
+                        <span data-tag role="listitem">php</span>
+                        <span data-tag role="listitem">js</span>
+                        <span data-tag role="listitem">laravel</span>
+                    </div>
+                </article>
+            
+                <article class="project-card" data-tags="web,frontend,javascript" role="listitem">
+                    <a href="https://devchallenge3.joanysergio.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Ver juego Penalty Arena - Abre en nueva ventana">
+                        <img src="images/polaroid5.png" alt="Captura del juego Penalty Arena">
+                    </a>
+                    <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
+                        <span data-tag role="listitem">frontend</span>
+                        <span data-tag role="listitem">js</span>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-tags="frontend,javascript" role="listitem">
+                    <a href="https://multimediaibc.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver página multimedia interactiva - Abre en nueva ventana">
+                        <img src="images/polaroid3.png" alt="Captura de la página multimedia interactiva">
+                    </a>
+                    <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
+                        <span data-tag role="listitem">frontend</span>
+                        <span data-tag role="listitem">js</span>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-tags="frontend,backend,javascript,php,laravel" role="listitem">
+                    <a href="https://laravel-cloud-prova-main-bz79it.laravel.cloud/pokemons" target="_blank" rel="noopener noreferrer" aria-label="Ver proyecto Pokemons - Abre en nueva ventana">
+                        <img src="images/polaroid1.png" alt="Captura del proyecto Pokemons">
+                        <!-- <h3>Proyecto Pokémon</h3> -->
+                    </a>
+                    <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
+                        <span data-tag role="listitem">frontend</span>
+                        <span data-tag role="listitem">backend</span>
+                        <span data-tag role="listitem">js</span>
+                        <span data-tag role="listitem">php</span>
+                        <span data-tag role="listitem">laravel</span>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-tags="frontend,backend,javascript,php,laravel" role="listitem">
+                    <a href="https://github.com/sergio15396/ibcgames" target="_blank" aria-label="Ver proyecto IBC Games - Abre en nueva ventana">
+                        <img src="images/polaroid2.png" alt="Captura del proyecto IBC Games">
+                        <!-- <h3>Proyecto IBC Games</h3> -->
+                    </a>
+                    <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
+                        <span data-tag role="listitem">frontend</span>
+                        <span data-tag role="listitem">backend</span>
+                        <span data-tag role="listitem">js</span>
+                        <span data-tag role="listitem">php</span>
+                        <span data-tag role="listitem">laravel</span>
+                    </div>
+                </article>               
+            </div>
+            <button class="projects-arrow right" aria-label="Ver siguiente proyecto" aria-controls="projects-track">></button>
+        </div>
+
+        <div class="projects-filters" role="group" aria-label="Filtros de proyectos">
+            <button type="button" data-filter="all" aria-pressed="true" aria-label="Mostrar todos los proyectos">Todos</button>
+            <button type="button" data-filter="frontend" aria-pressed="false" aria-label="Filtrar proyectos frontend">Frontend</button>
+            <button type="button" data-filter="backend" aria-pressed="false" aria-label="Filtrar proyectos backend">Backend</button>
+            <button type="button" data-filter="php" aria-pressed="false" aria-label="Filtrar proyectos PHP">PHP</button>
+            <button type="button" data-filter="laravel" aria-pressed="false" aria-label="Filtrar proyectos Laravel">Laravel</button>
+            <button type="button" data-filter="javascript" aria-pressed="false" aria-label="Filtrar proyectos JavaScript">JavaScript</button>
+        </div>
+    </section>
+
+    <section id="contact" role="region" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contacto</h2>
+        <p>Puedes contactarme a través de: </p>
+        <ul role="list" aria-label="Enlaces de contacto">
+            <li><a href="mailto:sergio15396@gmail.com" aria-label="Enviar correo electrónico a sergio15396@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+            <li><a href="tel:+34 638 73 37 82" aria-label="Llamar al teléfono"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/sergio-reyes-de-diego-b96732206/" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil de LinkedIn - Abre en nueva ventana"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        </ul>
+        <p>Puedes ver más trabajos en: </p>
+        <ul role="list" aria-label="Enlaces a portafolio y trabajos">
+            <li><a href="https://github.com/sergio15396" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil de GitHub - Abre en nueva ventana"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://app.netlify.com/teams/sergio15396/projects" target="_blank" rel="noopener noreferrer" aria-label="Ver proyectos en Netlify - Abre en nueva ventana"><i class="fas fa-diamond" aria-hidden="true"></i></a></li>
+            <li><a href="https://instagram.com/s_r_interiorismo" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil de Instagram - Abre en nueva ventana"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </section>
+
+    <script src="menu.js"></script>
+    <script src="skills.js"></script>
+    <script src="projects.js"></script>
+    <script src="scroll.js"></script>
+</body>
+</html>
