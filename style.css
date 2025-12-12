@@ -752,3 +752,467 @@ section h2 {
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* ========== RESPONSIVE PARA IPHONE 14 PRO MAX (430px) ========== */
+@media screen and (max-width: 430px) {
+    * {
+        overflow-x: hidden !important;
+    }
+    
+    /* Ajustes generales */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    body {
+        background-attachment: scroll;
+        background: var(--color-primary) !important; /* Fondo básico del color primario */
+        background-image: none !important; /* Elimina la imagen de fondo */
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Botón de menú optimizado */
+    #menu-toggle {
+        width: 44px;
+        height: 44px;
+        top: 12px;
+        right: 12px;
+        border-width: 1.5px;
+    }
+    
+    .menu-icon::before,
+    .menu-icon::after,
+    .menu-icon {
+        width: 22px;
+        height: 1.5px;
+    }
+    
+    .menu-icon::before {
+        transform: translateY(-6px);
+    }
+    
+    .menu-icon::after {
+        transform: translateY(6px);
+    }
+    
+    /* Header/Navegación */
+    #header {
+        background-size: cover;
+        padding: 2rem 1rem;
+    }
+    
+    #header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        letter-spacing: 1.5px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1.8rem;
+        padding: 0 1rem;
+    }
+    
+    nav a {
+        font-size: 1.3rem;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a i {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+        width: 30px;
+    }
+    
+    nav a:hover {
+        transform: translateX(5px);
+    }
+    
+    /* Welcome Section */
+    #welcome {
+        padding: 1.5rem;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    
+    #welcome img {
+        height: 160px;
+        width: 160px;
+        margin-bottom: 1.5rem;
+    }
+    
+    #welcome h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    #welcome p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+    
+    /* Títulos de secciones */
+    section h2 {
+        font-size: 2.3rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1.5px;
+        padding: 0 1rem;
+    }
+    
+    /* Sobre mí - CORREGIDO */
+    #about-me {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        justify-content: flex-start;
+        overflow: visible;
+    }
+    
+    #about-me h2 {
+        margin-bottom: 1.5rem;
+    }
+    
+    #about-me .about-me-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-height: none;
+        overflow-y: visible;
+        padding: 0;
+        flex: 0 1 auto;
+    }
+    
+    #about-me .about-me-column {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 12px;
+        padding: 1.2rem;
+        margin-bottom: 0;
+        min-height: auto;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    #about-me p {
+        font-size: 0.95rem;
+        text-align: left;
+        line-height: 1.5;
+        margin: 0.8rem 0;
+    }
+    
+    #about-me .about-me-column img {
+        max-width: 80px;
+        width: 80px;
+        height: 80px;
+        margin: 0.5rem auto 0.8rem;
+    }
+    
+    /* Skills */
+    #skills {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+    }
+    
+    #skills p {
+        font-size: 1rem;
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #skills .logos {
+        gap: 10px;
+        padding: 1rem 0;
+    }
+    
+    #skills .logos .carousel-item {
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+    }
+    
+    .skills-legend {
+        gap: 1rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .skills-legend .legend-item {
+        font-size: 0.9rem;
+        gap: 0.5rem;
+    }
+    
+    #skills .logos-filters {
+        padding: 0.8rem 0;
+        gap: 6px;
+    }
+    
+    #skills .logos-filters button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    /* Certificados */
+    #certificates {
+        padding: 2rem 1rem;
+        min-height: 100vh;
+        justify-content: center;
+    }
+    
+    #certificates .certificates-gallery {
+        width: 100%;
+        height: 220px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    #certificates .certificates-gallery a {
+        flex-grow: 1;
+        transition: all 0.3s ease;
+    }
+    
+    #certificates .certificates-gallery a:hover {
+        width: 150px;
+    }
+    
+    #certificates .certificates-gallery a img {
+        opacity: 0.9;
+    }
+    
+    /* Proyectos */
+    #projects {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+    
+    #projects h2 {
+        padding: 1rem 1rem 0.5rem;
+    }
+    
+    #projects .projects-carousel {
+        padding: 0 2.5rem;
+        margin: 1rem 0;
+    }
+    
+    #projects .projects-track {
+        gap: 1rem;
+        padding: 0.5rem 0 1.5rem;
+    }
+    
+    #projects .project-card {
+        width: 100%;
+        flex: 0 0 100%;
+        padding: 0.5rem;
+    }
+    
+    #projects .project-card img {
+        border-radius: 8px;
+    }
+    
+    #projects .project-card h3 {
+        font-size: 1.1rem;
+        margin: 0.6rem 0;
+    }
+    
+    #projects .project-tags {
+        gap: 5px;
+    }
+    
+    #projects .project-tags span[data-tag] {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+        margin: 0.8rem 0;
+    }
+    
+    #projects .projects-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    #projects .projects-arrow.left {
+        left: 8px;
+    }
+    
+    #projects .projects-arrow.right {
+        right: 8px;
+    }
+    
+    #projects .projects-filters {
+        padding: 0.8rem 1rem;
+        gap: 6px;
+    }
+    
+    #projects .projects-filters button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    /* Contact */
+    #contact {
+        padding: 2.5rem 1rem;
+        min-height: 100vh;
+    }
+    
+    #contact h2 {
+        margin-bottom: 1.5rem;
+    }
+    
+    #contact p {
+        font-size: 1.1rem;
+        margin: 0.8rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    #contact ul {
+        gap: 1.5rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+    }
+    
+    #contact a {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+    
+    /* Focus visible mejorado para touch */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    #menu-toggle:focus-visible {
+        outline: 2px solid #FFD700;
+        outline-offset: 1px;
+    }
+}
+
+/* Ajustes específicos para altura del iPhone 14 Pro Max (932px) */
+@media screen and (max-width: 430px) and (min-height: 900px) {
+    #about-me {
+        min-height: 932px;
+        justify-content: center;
+        padding: 3rem 1rem;
+    }
+    
+    #about-me .about-me-content {
+        gap: 2rem;
+    }
+    
+    #about-me .about-me-column {
+        padding: 1.5rem;
+    }
+    
+    #about-me p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    #welcome {
+        padding-top: 4rem;
+    }
+    
+    #certificates .certificates-gallery {
+        height: 250px;
+    }
+    
+    #contact {
+        padding: 3rem 1rem;
+        justify-content: center;
+    }
+}
+
+/* Para landscape en iPhone */
+@media screen and (max-width: 932px) and (orientation: landscape) and (max-height: 430px) {
+    /* Ajustes generales para landscape */
+    body {
+        background-attachment: scroll;
+    }
+    
+    #menu-toggle {
+        top: 10px;
+        right: 10px;
+    }
+    
+    /* Header más compacto en landscape */
+    #header {
+        padding: 1rem;
+    }
+    
+    #header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    nav a {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    nav a i {
+        font-size: 1.3rem;
+    }
+    
+    /* About me en landscape - 3 columnas */
+    #about-me {
+        padding: 1rem;
+        min-height: auto;
+        height: 100vh;
+    }
+    
+    #about-me .about-me-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 0;
+    }
+    
+    #about-me .about-me-column {
+        padding: 0.8rem;
+        min-height: 300px;
+    }
+    
+    #about-me p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    #about-me .about-me-column img {
+        width: 60px;
+        height: 60px;
+        margin: 0.3rem auto;
+    }
+    
+    /* Projects en landscape - 2 columnas */
+    #projects .project-card {
+        width: calc(50% - 0.5rem);
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+    
+    /* Certificados más altos en landscape */
+    #certificates .certificates-gallery {
+        height: 180px;
+    }
+    
+    /* Contacto más compacto */
+    #contact {
+        padding: 1.5rem;
+    }
+    
+    #contact ul {
+        gap: 1rem;
+    }
+}
