@@ -668,20 +668,47 @@ section h2 {
 /* Project Tags */
 #projects .project-tags {
     display: flex;
-    gap: 6px;
+    gap: 24px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 #projects .project-tags span[data-tag] {
-    padding: 4px 10px;
-    background-color: var(--color-secondary);
-    margin: 1.5rem 0;
+    position: relative;
+    background: #333;
     color: white;
-    border-radius: 12px;
+    padding: 6px 6px 6px 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 1rem 0;
     font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: lowercase;
+    line-height: 1;
+    border-radius: 0 4px 4px 0;
+}
+
+#projects .project-tags span[data-tag]::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 12px solid #333;
+}
+
+#projects .project-tags span[data-tag]::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
 }
 
 /* Projects Carousel Arrows */
@@ -788,13 +815,8 @@ section h2 {
 
 /* ========== RESPONSIVE PARA IPHONE 14 PRO MAX (430px) ========== */
 @media screen and (max-width: 430px) {
-    * {
-        overflow-x: hidden !important;
-    }
-    
     /* Ajustes generales */
     html, body {
-        overflow-x: hidden;
         width: 100%;
         position: relative;
     }
@@ -804,6 +826,15 @@ section h2 {
         background: var(--color-primary) !important; /* Fondo básico del color primario */
         background-image: none !important; /* Elimina la imagen de fondo */
         -webkit-text-size-adjust: 100%;
+    }
+
+    section:not(#header) {
+        min-height: auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
     }
     
     /* Botón de menú optimizado */
@@ -871,9 +902,9 @@ section h2 {
     
     /* Welcome Section */
     #welcome {
+        height: 100vh !important;
         padding: 1.5rem;
         justify-content: center;
-        min-height: 100vh;
     }
     
     #welcome img {
@@ -905,7 +936,7 @@ section h2 {
     /* Sobre mí - CORREGIDO */
     #about-me {
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
         padding: 2rem 1rem;
         justify-content: flex-start;
         overflow: visible;
@@ -950,7 +981,7 @@ section h2 {
     /* Skills */
     #skills {
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
         padding: 2rem 1rem;
     }
     
@@ -991,11 +1022,22 @@ section h2 {
         padding: 6px 10px;
         font-size: 0.85rem;
     }
+
+    #skills .logos-filters button:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    #skills .logos-filters button:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+    }
     
     /* Certificados */
     #certificates {
         padding: 2rem 1rem;
-        min-height: 100vh;
+        min-height: auto;
         justify-content: center;
     }
     
@@ -1003,7 +1045,6 @@ section h2 {
         width: 100%;
         height: 220px;
         border-radius: 10px;
-        overflow: hidden;
     }
     
     #certificates .certificates-gallery a {
@@ -1022,7 +1063,7 @@ section h2 {
     /* Proyectos */
     #projects {
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
         padding-bottom: 2rem;
     }
     
@@ -1056,13 +1097,48 @@ section h2 {
     }
     
     #projects .project-tags {
-        gap: 5px;
+        gap: 20px;
+        display: none;
     }
     
     #projects .project-tags span[data-tag] {
-        padding: 4px 8px;
+        position: relative;
+        background: #333;
+        color: white;
+        padding: 6px 6px 6px 12px;
+        font-weight: bold;
+        display: inline-block;
+        margin: 0.6rem 0;
         font-size: 0.75rem;
-        margin: 0.8rem 0;
+        line-height: 1;
+        border-radius: 0 2px 2px 0;
+    }
+
+    #projects .projects-filters button:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    #projects .projects-filters button:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+    }
+
+    /* Ajustes para pseudo elementos en pantallas pequeñas */
+    #projects .project-tags span[data-tag]::before {
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #333;
+    }
+
+    #projects .project-tags span[data-tag]::after {
+        left: -4px;
+        width: 7px;
+        height: 7px;
     }
     
     #projects .projects-arrow {
@@ -1092,7 +1168,7 @@ section h2 {
     /* Contact */
     #contact {
         padding: 2.5rem 1rem;
-        min-height: 100vh;
+        min-height: auto;
     }
     
     #contact h2 {
