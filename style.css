@@ -1065,23 +1065,18 @@ section h2 {
         -webkit-overflow-scrolling: touch;
     }
 
-    /* Each certificate fills available viewport height (mobile) */
-    #certificates .certificates-gallery {
-        height: calc(100vh - 120px); /* leave room for header/menu */
-    }
-
     #certificates .certificates-gallery a {
         flex: 0 0 40%;
         max-width: 100%;
-        height: 100%;
         display: block;
         scroll-snap-align: center;
         transition: transform 0.22s ease, opacity 0.22s ease;
     }
 
     #certificates .certificates-gallery a img {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
+        max-height: 260px;
         display: block;
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.12);
