@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Detectar si estamos en móvil
+  const isMobile = window.innerWidth <= 430;
+  
   // Elementos del contenedor y controles para las habilidades
   const container = document.querySelector('#skills .logos');
   const items = Array.from(container?.querySelectorAll('.carousel-item') || []);
@@ -14,16 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Función para mantener el scroll alineado a la sección completa
+  // SOLO en desktop mantener la corrección de scroll
   function maintainSectionScroll() {
-    if (!skillsSection) return;
+    if (!skillsSection || isMobile) return; // No hacer nada en móvil
     
     const vh = window.innerHeight;
     const sectionIndex = Array.from(document.querySelectorAll('section:not(#header)')).indexOf(skillsSection);
     const targetScroll = sectionIndex * vh;
     const currentScroll = window.pageYOffset || window.scrollY;
     
-    // Si el scroll está desalineado (más de 50px de diferencia), corregirlo
     if (Math.abs(currentScroll - targetScroll) > 50) {
       window.scrollTo({
         top: targetScroll,
@@ -32,15 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Prevenir scroll automático del navegador cuando se hace focus en los botones
+  // Prevenir scroll automático SOLO en desktop
   controls.forEach(btn => {
     btn.addEventListener('focus', () => {
-      // Mantener el scroll alineado después de que el navegador haga su scroll automático
-      requestAnimationFrame(() => {
+      if (!isMobile) {
         requestAnimationFrame(() => {
-          maintainSectionScroll();
+          requestAnimationFrame(() => {
+            maintainSectionScroll();
+          });
         });
-      });
+      }
     });
 
     btn.addEventListener('click', () => {

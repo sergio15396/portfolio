@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Detectar si estamos en móvil
+  const isMobile = window.innerWidth <= 430;
+
   // Elementos del contenedor y controles para los proyectos
   const container = document.querySelector('#projects .projects-track');
   const items = Array.from(container?.querySelectorAll('.project-card') || []);
@@ -6,6 +9,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.querySelector('#projects .projects-arrow.left');
   const nextBtn = document.querySelector('#projects .projects-arrow.right');
   let currentIndex = 0;
+
+  // Función para aplicar el filtro (compartida móvil/desktop)
+  function applyFilter(key) {
+    items.forEach(item => {
+      const tags = (item.getAttribute('data-tags') || '').split(',');
+      const show = key === 'all' || tags.includes(key);
+      item.style.display = show ? '' : 'none';
+    });
+    currentIndex = 0;
+  }
+
+  // Evento de clic para los botones de filtro (móvil y desktop)
+  controls.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-filter') || 'all';
+      applyFilter(key);
+      controls.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    });
+  });
+
+  // Marcar por defecto el botón "all" en su color al cargar la página
+  const defaultBtn = controls.find(b => b.getAttribute('data-filter') === 'all');
+  if (defaultBtn) {
+    defaultBtn.classList.add('active');
+    defaultBtn.setAttribute('aria-pressed', 'true');
+  }
+
+  // Aplicar filtro por defecto
+  applyFilter('all');
+
+  // En móvil solo queremos filtros, sin lógica de carrusel
+  if (isMobile) {
+    // Opcionalmente ocultar flechas en móvil si se desea
+    prevBtn?.classList.add('hidden');
+    nextBtn?.classList.add('hidden');
+    return;
+  }
 
   const getVisibleItems = () => items.filter(item => item.style.display !== 'none');
 
@@ -38,6 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const updateFocusable = () => {
+    // Asegurarnos de que las flechas siempre sean focuseables
+    if (prevBtn) prevBtn.setAttribute('tabindex', '0');
+    if (nextBtn) nextBtn.setAttribute('tabindex', '0');
+
+    const visible = getVisibleItems();
+    // Marcamos sólo los elementos visibles en la ventana actual (currentIndex..currentIndex+2)
+    visible.forEach(item => {
+      const globalIndex = items.indexOf(item);
+      const link = item.querySelector('a');
+      if (!link) return;
+      const inWindow = globalIndex >= currentIndex && globalIndex < currentIndex + 3;
+      link.setAttribute('tabindex', inWindow ? '0' : '-1');
+    });
+  };
+
   const updateCarousel = () => {
     if (!container) {
       return;
@@ -58,54 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ajustar qué enlaces son focuseables (roving tabindex)
     updateFocusable();
   };
-
-  // Función para aplicar el filtro
-  function applyFilter(key) {
-    items.forEach(item => {
-      const tags = (item.getAttribute('data-tags') || '').split(',');
-      const show = key === 'all' || tags.includes(key);
-      item.style.display = show ? '' : 'none';
-    });
-    currentIndex = 0;
-    updateCarousel();
-  }
-
-  // Ajusta el tabindex de los enlaces dentro del carrusel para que solo los elementos visibles sean tabbables
-  function updateFocusable() {
-    // Asegurarnos de que los flechas siempre sean focuseables
-    if (prevBtn) prevBtn.setAttribute('tabindex', '0');
-    if (nextBtn) nextBtn.setAttribute('tabindex', '0');
-
-    const visible = getVisibleItems();
-    // Marcamos sólo los elementos visibles en la ventana actual (currentIndex..currentIndex+2)
-    visible.forEach((item, i) => {
-      const globalIndex = items.indexOf(item);
-      const link = item.querySelector('a');
-      if (!link) return;
-      const inWindow = globalIndex >= currentIndex && globalIndex < currentIndex + 3;
-      link.setAttribute('tabindex', inWindow ? '0' : '-1');
-    });
-  }
-
-  // Evento de clic para los botones de filtro
-  controls.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.getAttribute('data-filter') || 'all';
-      applyFilter(key);
-      controls.forEach(b => {
-        const isActive = b === btn;
-        b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-    });
-  });
-
-  // Marcar por defecto el botón "all" en su color al cargar la página
-  const defaultBtn = controls.find(b => b.getAttribute('data-filter') === 'all');
-  if (defaultBtn) {
-    defaultBtn.classList.add('active');
-    defaultBtn.setAttribute('aria-pressed', 'true');
-  }
 
   // Función para mover el carrusel (flechas)
   prevBtn?.addEventListener('click', () => {
@@ -139,25 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel();
   });
 
-  // default
-  applyFilter('all');
-  // Evitar que al tabular dentro de la sección proyectos la vista se quede cortada.
-  // Cuando el foco entra en cualquier elemento dentro de `#projects`, forzamos
-  // que la sección quede alineada al inicio del viewport.
-  document.addEventListener('focusin', (e) => {
-    const target = e.target;
-    if (target && target.closest && target.closest('#projects')) {
-      const proj = document.getElementById('projects');
-      if (proj) {
-        // Ejecutar en el siguiente tick para que el scroll por defecto del navegador
-        // termine y podamos corregir la posición.
-        setTimeout(() => {
-          proj.scrollIntoView({ behavior: 'auto', block: 'start' });
-        }, 0);
-      }
-    }
-  });
-  // Asegurar tabindex correctos tras init
+  // Inicializar carrusel y focos en desktop
+  updateCarousel();
   updateFocusable();
 });
 

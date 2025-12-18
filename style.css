@@ -619,8 +619,6 @@ section h2 {
     gap: 1rem;
     padding: 1rem 0 2rem 0;
     width: 100%;
-    transition: transform 0.35s ease;
-    will-change: transform;
 }
 
 /* Ocultar scrollbar del track */
@@ -813,19 +811,20 @@ section h2 {
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* ========== RESPONSIVE PARA IPHONE 14 PRO MAX (430px) ========== */
+/* ========== RESPONSIVE (430px) ========== */
 @media screen and (max-width: 430px) {
-    /* Ajustes generales */
+    /* ===== GENERAL ===== */
     html, body {
         width: 100%;
         position: relative;
-    }
-    
-    body {
         background-attachment: scroll;
-        background: var(--color-primary) !important; /* Fondo básico del color primario */
-        background-image: none !important; /* Elimina la imagen de fondo */
+        background: var(--color-primary) !important;
+        background-image: none !important;
         -webkit-text-size-adjust: 100%;
+        scroll-behavior: auto !important;
+        overflow-y: auto !important;
+        height: auto;
+        -webkit-overflow-scrolling: touch !important;
     }
 
     section:not(#header) {
@@ -835,9 +834,19 @@ section h2 {
         flex-direction: column;
         justify-content: center;
         width: 100%;
+        scroll-snap-align: none !important;
+        height: auto;
+        overflow: visible !important;
     }
-    
-    /* Botón de menú optimizado */
+
+    section h2 {
+        font-size: 2.3rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1.5px;
+        padding: 0 1rem;
+    }
+
+    /* ===== MENU ===== */
     #menu-toggle {
         width: 44px;
         height: 44px;
@@ -861,7 +870,7 @@ section h2 {
         transform: translateY(6px);
     }
     
-    /* Header/Navegación */
+    /* ===== HEADER/NAVEGACIÓN ===== */
     #header {
         background-size: cover;
         padding: 2rem 1rem;
@@ -899,10 +908,11 @@ section h2 {
     nav a:hover {
         transform: translateX(5px);
     }
-    
-    /* Welcome Section */
+
+    /* ===== WELCOME ===== */
     #welcome {
         height: 100vh !important;
+        min-height: 100vh !important;
         padding: 1.5rem;
         justify-content: center;
     }
@@ -924,22 +934,13 @@ section h2 {
         line-height: 1.5;
         padding: 0 0.5rem;
     }
-    
-    /* Títulos de secciones */
-    section h2 {
-        font-size: 2.3rem;
-        margin-bottom: 1.5rem;
-        letter-spacing: 1.5px;
-        padding: 0 1rem;
-    }
-    
-    /* Sobre mí - CORREGIDO */
+
+    /* ===== ABOUT ME ===== */
     #about-me {
-        height: auto;
-        min-height: auto;
+        height: auto !important;
+        min-height: auto !important;
         padding: 2rem 1rem;
         justify-content: flex-start;
-        overflow: visible;
     }
     
     #about-me h2 {
@@ -1021,6 +1022,9 @@ section h2 {
     #skills .logos-filters button {
         padding: 6px 10px;
         font-size: 0.85rem;
+        background: transparent;
+        border: none;
+        border-radius: 0;
     }
 
     #skills .logos-filters button:first-child {
@@ -1031,7 +1035,12 @@ section h2 {
     #skills .logos-filters button:last-child {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        border-right: none;
+    }
+    
+    #skills .logos-filters button.active {
+        background: var(--color-primary);
+        color: #fff;
+        border-radius: 8px;
     }
     
     /* Certificados */
@@ -1041,23 +1050,56 @@ section h2 {
         justify-content: center;
     }
     
+    /* Certificates: CSS-only horizontal carousel for mobile (swipe left/right) */
     #certificates .certificates-gallery {
         width: 100%;
-        height: 220px;
+        display: flex;
+        gap: 0.75rem;
+        padding: 0.5rem 0.25rem;
+        align-items: flex-start;
+        justify-content: flex-start;
         border-radius: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
+    /* Each certificate fills available viewport height (mobile) */
+    #certificates .certificates-gallery {
+        height: calc(100vh - 120px); /* leave room for header/menu */
+    }
+
     #certificates .certificates-gallery a {
-        flex-grow: 1;
-        transition: all 0.3s ease;
+        flex: 0 0 40%;
+        max-width: 100%;
+        height: 100%;
+        display: block;
+        scroll-snap-align: center;
+        transition: transform 0.22s ease, opacity 0.22s ease;
     }
-    
-    #certificates .certificates-gallery a:hover {
-        width: 150px;
-    }
-    
+
     #certificates .certificates-gallery a img {
-        opacity: 0.9;
+        width: auto;
+        height: 100%;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        object-fit: contain;
+    }
+
+    /* Hide scrollbars visually but keep native scroll for accessibility */
+    #certificates .certificates-gallery::-webkit-scrollbar {
+        display: none;
+    }
+    #certificates .certificates-gallery {
+        -ms-overflow-style: none; /* IE/Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    /* If there are many certificates, user can swipe horizontally; for 2 items they will appear side-by-side */
+    @media (max-width: 360px) {
+        #certificates .certificates-gallery a { flex: 0 0 85%; max-width: 85%; }
     }
     
     /* Proyectos */
@@ -1076,15 +1118,23 @@ section h2 {
         margin: 1rem 0;
     }
     
+    /* Projects: single-column cards, but make the track swipeable (CSS-only carousel) */
     #projects .projects-track {
+        display: flex;
         gap: 1rem;
         padding: 0.5rem 0 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        align-items: start;
     }
     
     #projects .project-card {
         width: 100%;
         flex: 0 0 100%;
         padding: 0.5rem;
+        scroll-snap-align: center;
+        box-sizing: border-box;
     }
     
     #projects .project-card img {
@@ -1112,27 +1162,6 @@ section h2 {
         font-size: 0.75rem;
         line-height: 1;
         border-radius: 0 2px 2px 0;
-    }
-
-    #projects .projects-filters button:first-child {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    #projects .projects-filters button:last-child {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: none;
-    }
-
-    /* Ajustes para pseudo elementos en pantallas pequeñas */
-    #projects .project-tags span[data-tag]::before {
-        left: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #333;
     }
 
     #projects .project-tags span[data-tag]::after {
@@ -1163,6 +1192,15 @@ section h2 {
     #projects .projects-filters button {
         padding: 6px 10px;
         font-size: 0.85rem;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+    }
+    
+    #projects .projects-filters button.active {
+        background: var(--color-primary);
+        color: #fff;
+        border-radius: 8px;
     }
     
     /* Contact */
@@ -1200,6 +1238,51 @@ section h2 {
     #menu-toggle:focus-visible {
         outline: 2px solid #FFD700;
         outline-offset: 1px;
+    }
+    
+    /* Añadido: deshabilitar scroll forzado y permitir scroll libre en responsive */
+    /* Deshabilitar completamente el scroll forzado y snap */
+    html, body {
+        scroll-behavior: auto !important;
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+    
+    /* Permitir scroll libre en todas las secciones */
+    section:not(#header) {
+        scroll-snap-align: none !important;
+        overflow: visible !important;
+    }
+    
+    /* Welcome y Contact mantienen 100vh en responsive */
+    #welcome {
+        height: 100vh !important;
+        min-height: 100vh !important;
+    }
+    
+    #contact {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        padding: 3rem 1rem !important;
+    }
+    
+    /* Las demás secciones tienen altura según contenido */
+    #about-me, #skills, #certificates, #projects {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 3rem 1rem !important;
+    }
+    
+    /* Asegurar que el contenedor de proyectos no fuerce scroll */
+    #projects .projects-track {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Prevenir que el body se quede bloqueado */
+    body {
+        position: static !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 }
 

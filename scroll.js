@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Detectar si estamos en móvil (ancho <= 430px) y salir para permitir scroll nativo
+  const isMobile = window.innerWidth <= 430;
+  if (isMobile) {
+    console.log('Modo móvil detectado - Scroll libre activado');
+    return; // Salir del script, permitiendo scroll nativo en responsive
+  }
+
   let isScrolling = false;
   let currentSection = 0;
   let pendingScroll = null;
