@@ -530,7 +530,7 @@ section h2 {
     background-color: rgba(230, 230, 230, 0.9);
     position: relative;
     height: 100vh; 
-    padding: 0; /* Sobrescribir el padding heredado de section:not(#header) */
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -709,7 +709,7 @@ section h2 {
     border-radius: 50%;
 }
 
-/* Projects Carousel Arrows */
+/* Projects Carousel flechas */
 #projects .projects-arrow {
     position: absolute;
     top: 45%;
@@ -811,9 +811,9 @@ section h2 {
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* ========== RESPONSIVE (430px) ========== */
+/* RESPONSIVE (430px) */
 @media screen and (max-width: 430px) {
-    /* ===== GENERAL ===== */
+    /* Estilos generales */
     html, body {
         width: 100%;
         position: relative;
@@ -846,7 +846,7 @@ section h2 {
         padding: 0 1rem;
     }
 
-    /* ===== MENU ===== */
+    /* Menú */
     #menu-toggle {
         width: 44px;
         height: 44px;
@@ -870,7 +870,7 @@ section h2 {
         transform: translateY(6px);
     }
     
-    /* ===== HEADER/NAVEGACIÓN ===== */
+    /* Header + nav */
     #header {
         background-size: cover;
         padding: 2rem 1rem;
@@ -909,7 +909,7 @@ section h2 {
         transform: translateX(5px);
     }
 
-    /* ===== WELCOME ===== */
+    /* Welcome */
     #welcome {
         height: 100vh !important;
         min-height: 100vh !important;
@@ -935,7 +935,7 @@ section h2 {
         padding: 0 0.5rem;
     }
 
-    /* ===== ABOUT ME ===== */
+    /* Sobre mí */
     #about-me {
         height: auto !important;
         min-height: auto !important;
@@ -1050,7 +1050,7 @@ section h2 {
         justify-content: center;
     }
     
-    /* Certificates: CSS-only horizontal carousel for mobile (swipe left/right) */
+    /* Certificados (swipear izquierda - derecha) */
     #certificates .certificates-gallery {
         width: 100%;
         display: flex;
@@ -1062,7 +1062,6 @@ section h2 {
         overflow-x: auto;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
     }
 
     #certificates .certificates-gallery a {
@@ -1076,26 +1075,19 @@ section h2 {
     #certificates .certificates-gallery a img {
         width: 100%;
         height: auto;
-        min-height: 360px;
-        max-height: 480px;
+        max-height: 650px;
         display: block;
-        border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         object-fit: contain;
     }
 
-    /* Hide scrollbars visually but keep native scroll for accessibility */
+    /* Quitar scrollbars */
     #certificates .certificates-gallery::-webkit-scrollbar {
         display: none;
     }
     #certificates .certificates-gallery {
-        -ms-overflow-style: none; /* IE/Edge */
-        scrollbar-width: none; /* Firefox */
-    }
-
-    /* If there are many certificates, user can swipe horizontally; for 2 items they will appear side-by-side */
-    @media (max-width: 360px) {
-        #certificates .certificates-gallery a { flex: 0 0 85%; max-width: 85%; }
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
     }
     
     /* Proyectos */
@@ -1114,7 +1106,7 @@ section h2 {
         margin: 1rem 0;
     }
     
-    /* Projects: single-column cards, but make the track swipeable (CSS-only carousel) */
+    /* Projects (carrusel) */
     #projects .projects-track {
         display: flex;
         gap: 1rem;
@@ -1144,7 +1136,7 @@ section h2 {
     
     #projects .project-tags {
         gap: 20px;
-        display: none;
+        display: auto;
     }
     
     #projects .project-tags span[data-tag] {
@@ -1199,209 +1191,8 @@ section h2 {
         border-radius: 8px;
     }
     
-    /* Contact */
-    #contact {
-        padding: 2.5rem 1rem;
-        min-height: auto;
-    }
-    
-    #contact h2 {
-        margin-bottom: 1.5rem;
-    }
-    
-    #contact p {
-        font-size: 1.1rem;
-        margin: 0.8rem 0;
-        padding: 0 0.5rem;
-    }
-    
-    #contact ul {
-        gap: 1.5rem;
-        margin: 2rem 0;
-        flex-wrap: wrap;
-    }
-    
-    #contact a {
-        width: 55px;
-        height: 55px;
-        font-size: 1.8rem;
-    }
-    
-    /* Focus visible mejorado para touch */
-    button:focus-visible,
-    a:focus-visible,
-    input:focus-visible,
-    #menu-toggle:focus-visible {
-        outline: 2px solid #FFD700;
-        outline-offset: 1px;
-    }
-    
-    /* Añadido: deshabilitar scroll forzado y permitir scroll libre en responsive */
-    /* Deshabilitar completamente el scroll forzado y snap */
-    html, body {
-        scroll-behavior: auto !important;
-        overflow-y: auto !important;
-        height: auto !important;
-    }
-    
-    /* Permitir scroll libre en todas las secciones */
-    section:not(#header) {
-        scroll-snap-align: none !important;
-        overflow: visible !important;
-    }
-    
-    /* Welcome y Contact mantienen 100vh en responsive */
-    #welcome {
-        height: 100vh !important;
-        min-height: 100vh !important;
-    }
-    
+    /* Contacto */
     #contact {
         height: 100vh !important;
-        min-height: 100vh !important;
-        padding: 3rem 1rem !important;
-    }
-    
-    /* Las demás secciones tienen altura según contenido */
-    #about-me, #skills, #certificates, #projects {
-        height: auto !important;
-        min-height: auto !important;
-        padding: 3rem 1rem !important;
-    }
-    
-    /* Asegurar que el contenedor de proyectos no fuerce scroll */
-    #projects .projects-track {
-        transform: none !important;
-        transition: none !important;
-    }
-    
-    /* Prevenir que el body se quede bloqueado */
-    body {
-        position: static !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-}
-
-/* Ajustes específicos para altura del iPhone 14 Pro Max (932px) */
-@media screen and (max-width: 430px) and (min-height: 900px) {
-    #about-me {
-        min-height: 932px;
-        justify-content: center;
-        padding: 3rem 1rem;
-    }
-    
-    #about-me .about-me-content {
-        gap: 2rem;
-    }
-    
-    #about-me .about-me-column {
-        padding: 1.5rem;
-    }
-    
-    #about-me p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    
-    #welcome {
-        padding-top: 4rem;
-    }
-    
-    #certificates .certificates-gallery {
-        height: 250px;
-    }
-    
-    #contact {
-        padding: 3rem 1rem;
-        justify-content: center;
-    }
-}
-
-/* Para landscape en iPhone */
-@media screen and (max-width: 932px) and (orientation: landscape) and (max-height: 430px) {
-    /* Ajustes generales para landscape */
-    body {
-        background-attachment: scroll;
-    }
-    
-    #menu-toggle {
-        top: 10px;
-        right: 10px;
-    }
-    
-    /* Header más compacto en landscape */
-    #header {
-        padding: 1rem;
-    }
-    
-    #header h1 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-    }
-    
-    nav a {
-        width: auto;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-    
-    nav a i {
-        font-size: 1.3rem;
-    }
-    
-    /* About me en landscape - 3 columnas */
-    #about-me {
-        padding: 1rem;
-        min-height: auto;
-        height: 100vh;
-    }
-    
-    #about-me .about-me-content {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding: 0;
-    }
-    
-    #about-me .about-me-column {
-        padding: 0.8rem;
-        min-height: 300px;
-    }
-    
-    #about-me p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-    
-    #about-me .about-me-column img {
-        width: 60px;
-        height: 60px;
-        margin: 0.3rem auto;
-    }
-    
-    /* Projects en landscape - 2 columnas */
-    #projects .project-card {
-        width: calc(50% - 0.5rem);
-        flex: 0 0 calc(50% - 0.5rem);
-    }
-    
-    /* Certificados más altos en landscape */
-    #certificates .certificates-gallery {
-        height: 180px;
-    }
-    
-    /* Contacto más compacto */
-    #contact {
-        padding: 1.5rem;
-    }
-    
-    #contact ul {
-        gap: 1rem;
     }
 }
