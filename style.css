@@ -1040,19 +1040,20 @@ section h2 {
     #skills .logos-filters button.active {
         background: var(--color-primary);
         color: #fff;
-        border-radius: 8px;
+        border-radius: 10px;
     }
     
     /* Certificados */
     #certificates {
         padding: 2rem 1rem;
-        min-height: auto;
+        height: 480px !important;
         justify-content: center;
     }
     
     /* Certificados (swipear izquierda - derecha) */
     #certificates .certificates-gallery {
         width: 100%;
+        height: auto;
         display: flex;
         gap: 0.75rem;
         padding: 0.5rem 0.25rem;
@@ -1135,7 +1136,7 @@ section h2 {
     }
     
     #projects .project-tags {
-        gap: 20px;
+        gap: 1.1rem;
         display: auto;
     }
     
@@ -1188,7 +1189,7 @@ section h2 {
     #projects .projects-filters button.active {
         background: var(--color-primary);
         color: #fff;
-        border-radius: 8px;
+        border-radius: 10px;
     }
     
     /* Contacto */
