@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Sergio Reyes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest"> 
 </head>
 <body>
     <button id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="header" tabindex="-1">
@@ -22,7 +27,7 @@
                 <li><a href="#welcome" aria-label="Ir a la sección de inicio"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
                 <li><a href="#about-me" aria-label="Ir a la sección sobre mí"><i class="fas fa-user" aria-hidden="true"></i> Sobre mí</a></li>
                 <li><a href="#skills" aria-label="Ir a la sección de habilidades"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Skills</a></li>
-                <li><a href="#certificates" aria-label="Ir a la sección de certificaciones"><i class="fas fa-certificate" aria-hidden="true"></i> Certificaciones</a></li>
+                <!-- <li><a href="#certificates" aria-label="Ir a la sección de certificaciones"><i class="fas fa-certificate" aria-hidden="true"></i> Certificaciones</a></li> -->
                 <li><a href="#projects" aria-label="Ir a la sección de proyectos"><i class="fas fa-code" aria-hidden="true"></i> Proyectos</a></li>
                 <li><a href="#contact" aria-label="Ir a la sección de contacto"><i class="fas fa-envelope" aria-hidden="true"></i> Contacto</a></li>
             </ul>
@@ -150,7 +155,7 @@
         </div>
     </section>
 
-    <section id="certificates" role="region" aria-labelledby="certificates-heading">
+    <!-- <section id="certificates" role="region" aria-labelledby="certificates-heading">
         <h2 id="certificates-heading">Certificaciones</h2>
     
         <div class="certificates-gallery" aria-label="Galería de certificaciones" role="list">
@@ -163,7 +168,7 @@
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 3 - Abre en nueva ventana" role="listitem">
                 <img src="images/c1.png" alt="Certificación 3">
             </a>
-            <!-- <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 4 - Abre en nueva ventana" role="listitem">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 4 - Abre en nueva ventana" role="listitem">
                 <img src="images/c2.png" alt="Certificación 4">
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 5 - Abre en nueva ventana" role="listitem">
@@ -171,9 +176,9 @@
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver certificación 6 - Abre en nueva ventana" role="listitem">
                 <img src="images/c2.png" alt="Certificación 6">
-            </a> -->
+            </a>
         </div>
-    </section>    
+    </section> -->
     
     <section id="projects" role="region" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Proyectos</h2>
@@ -182,7 +187,7 @@
             <button class="projects-arrow left" aria-label="Ver proyecto anterior" aria-controls="projects-track"><</button>
             <div class="projects-track" id="projects-track" role="list" aria-label="Lista de proyectos">
                 <article class="project-card" data-tags="frontend,backend,php,javascript,laravel" role="listitem">
-                    <a href="https://devchallenge2.joanysergio.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Ver página de lista de compras - Abre en nueva ventana">
+                    <a href="https://github.com/JohanStragus/devchallenge2" target="_blank" rel="noopener noreferrer" aria-label="Ver página de lista de compras - Abre en nueva ventana">
                         <img src="images/polaroid4.png" alt="Captura de la página de lista de compras">
                     </a>
                     <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
@@ -195,7 +200,7 @@
                 </article>
             
                 <article class="project-card" data-tags="frontend,javascript" role="listitem">
-                    <a href="https://devchallenge3.joanysergio.xyz/" target="_blank" rel="noopener noreferrer" aria-label="Ver juego Penalty Arena - Abre en nueva ventana">
+                    <a href="https://github.com/sergio15396/devchallenge3" target="_blank" rel="noopener noreferrer" aria-label="Ver juego Penalty Arena - Abre en nueva ventana">
                         <img src="images/polaroid5.png" alt="Captura del juego Penalty Arena">
                     </a>
                     <div class="project-tags" role="list" aria-label="Tecnologías utilizadas en el proyecto">
